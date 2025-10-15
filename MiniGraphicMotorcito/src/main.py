@@ -51,7 +51,7 @@ material_sprite = Material(shader_sprite, textures_data=[sprite_texture])
 
 #objetos
 cube1 = Cube((-2,0,0), (0,60,30), (1,0.5,1), name="Cube1")
-#cube2 = Cube((2,0,0), (0,45,0), (1,1,1), name="Cube2")
+cube2 = Cube((2,0,0), (0,45,0), (1,1,1), name="Cube2")
 sphere1 = Sphere((2,0,0), (0,0,0), (1,1,1), name="Sphere1" )
 quad = Quad((0, -3, 0), (-90, 0, 0), (10, 15, 1), name="Floor", animated=False)
 sprite = Quad((0, 0, 0), (0, 0, 0), (10, 15, 1), name="Sprite", animated=False, hittable=False)
@@ -70,13 +70,13 @@ elif SCENE_TYPE == "cpu":
     scene = RayScene(window.ctx, camera, WIDTH, HEIGHT)
     scene.add_object(sprite, material_sprite)
     scene.add_object(cube1, material_plastic)
-    scene.add_object(sphere1, material_glass)
+    scene.add_object(cube2, material_glass)
     scene.add_object(quad, material_ceramic)
 
 elif SCENE_TYPE == "gpu":
     scene = RaySceneGPU(window.ctx, camera, WIDTH, HEIGHT, sprite, material_sprite)
     scene.add_object(cube1, material_plastic)
-    scene.add_object(sphere1, material_glass)
+    scene.add_object(cube2, material_glass)
     scene.add_object(quad, material_ceramic)
 
 #carga de escena y loop principal
